@@ -5,7 +5,7 @@
             echo "<area href=\"build.php?id=$i\" coords=\"$coorarray[$i]\" shape=\"circle\" title=\"<div style=color:#FFF><b>".$building->procResType($village->resarray['f'.$i.'t'])."</b></div> Szint ".$village->resarray['f'.$i]."\"/>";
         }
     ?>
-<area href="dorf2.php" coords="250,191,32" shape="circle" title="Épületek">
+<area href="dorf2.php" coords="250,191,32" shape="circle" title="Fields">
 </map>
 
 <div id="village_map" class="f<?php echo $village->type; ?>">
