@@ -12,10 +12,10 @@
 <div id="village_map">
 <?php
 if($building->walling()) {
-	$wtitle = $building->procResType($building->walling())." Szint ".$village->resarray['f40'];
+	$wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
 }
 else {
-	$wtitle = ($village->resarray['f40'] == 0)? "Városon kívüli építkezés" : $building->procResType($village->resarray['f40t'],0)." Szint ".$village->resarray['f40'];
+	$wtitle = ($village->resarray['f40'] == 0)? "Outer building site" : $building->procResType($village->resarray['f40t'],0)." Szint ".$village->resarray['f40'];
 }
 ?>
 <map name="clickareas" id="clickareas">
@@ -44,15 +44,15 @@ $coords = array(19=>"110,135,132,120,132,121,160,122,179,136,179,151,158,163,128
 "71,450,2,374,3,374,-10,243,13,142,120,81,214,34,340,18,500,43,615,130,641,239,643,350,601,425,534,494,358,534,282,532,180,526,77,456,117,378,163,413,242,442,331,454,425,443,499,417,576,344,596,304,598,221,571,157,481,90,385,61,313,56,217,72,135,113,77,165,46,217,44,269,65,326,119,379");
 for($t=19;$t<=40;$t++) {
 	if(($village->resarray['f99t'] == 40 AND ($t)=='26') or ($village->resarray['f99t'] == 40 AND ($t)=='30') or ($village->resarray['f99t'] == 40 AND ($t)=='31') or ($village->resarray['f99t'] == 40 AND ($t)=='32')) {
-	echo "<area href=\"build.php?id=99\" title=\"<div style=color:#FFF><b>Világcsoda</b></div> Szint ".$village->resarray['f99']."\" coords=\"$coords[$t]\" shape=\"poly\"/>";
+	echo "<area href=\"build.php?id=99\" title=\"<div style=color:#FFF><b>WorldWonder</b></div> Level ".$village->resarray['f99']."\" coords=\"$coords[$t]\" shape=\"poly\"/>";
 	} else {
 if($village->resarray['f'.$t.'t'] != 0) {
-$title = "<div style=color:#FFF><b>".$building->procResType($village->resarray['f'.$t.'t'])."</b></div> Szint ".$village->resarray['f'.$t];
+$title = "<div style=color:#FFF><b>".$building->procResType($village->resarray['f'.$t.'t'])."</b></div> Level ".$village->resarray['f'.$t];
 }
 else {
-    $title = "Építési terület";
+    $title = "Rally Point";
     if(($t == 39) && ($village->resarray['f'.$t] == 0)) {
-        $title = "Építési terület";
+        $title = "Rally Point building site";
         }
 }
 	echo "<area href=\"build.php?id=$t\" alt= \"$title\" title=\"$title\" coords=\"$coords[$t]\" shape=\"poly\"/>";
@@ -62,13 +62,13 @@ else {
 <?php
  if($village->resarray['f40'] == 0) { 
 if($building->walling()) {
-    $wtitle = $building->procResType($building->walling())." Szint ".$village->resarray['f40'];
+    $wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
     echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Top \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
      echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."bBottom \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
 
     }
 }else {
-          $wtitle = $building->procResType($building->walling())." Szint ".$village->resarray['f40'];
+          $wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
     echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Top \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
     echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Bottom \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
 }
@@ -79,10 +79,10 @@ if($building->walling()) {
 for ($i=1;$i<=20;$i++) {
 	if(($village->resarray['f99t'] == 40 AND ($i+18)=='26') or ($village->resarray['f99t'] == 40 AND ($i+18)=='30') or ($village->resarray['f99t'] == 40 AND ($i+18)=='31') or ($village->resarray['f99t'] == 40 AND ($i+18)=='32')) {
 		} else {
-	$text = "Építési terület";
+	$text = "Construction Site";
 	$img = "iso";
     	if($village->resarray['f'.($i+18).'t'] != 0) {
-        	$text = $building->procResType($village->resarray['f'.($i+18).'t'])." Szint ".$village->resarray['f'.($i+18)];
+        	$text = $building->procResType($village->resarray['f'.($i+18).'t'])." Level ".$village->resarray['f'.($i+18)];
             $img = "g".$village->resarray['f'.($i+18).'t'];
        }
     foreach($building->buildArray as $job) {
@@ -96,30 +96,30 @@ for ($i=1;$i<=20;$i++) {
 }
     if($village->resarray['f39'] == 0) {
             if($building->rallying()) {
-            echo "<img src=\"img/x.gif\" class=\"dx1 g16b\" alt=\"Gyülekezőtér ".$village->resarray['f39']."\" />";
+            echo "<img src=\"img/x.gif\" class=\"dx1 g16b\" alt=\"Rally Point ".$village->resarray['f39']."\" />";
             }
             else {
-            echo "<img src=\"img/x.gif\" class=\"dx1 g16e\" alt=\"Gyülekezőtér helye\" />";
+            echo "<img src=\"img/x.gif\" class=\"dx1 g16e\" alt=\"Rally Point \" />";
             }
         }
       else {
-      	echo "<img src=\"img/x.gif\" class=\"dx1 g16\" alt=\"Gyülekezőtér ".$village->resarray['f39']."\" />";
+      	echo "<img src=\"img/x.gif\" class=\"dx1 g16\" alt=\"Rally Point ".$village->resarray['f39']."\" />";
       }
 ?>
 <?php
 if($village->resarray['f99t'] == 40) {
 if($village->resarray['f99'] >= 0 && $village->resarray['f99'] <= 19) {
-echo '<img class="ww g40 g40_0" src="img/x.gif" alt="Világcsoda">'; }
+echo '<img class="ww g40 g40_0" src="img/x.gif" alt="Wonder of the World">'; }
 if($village->resarray['f99'] >= 20 && $village->resarray['f99'] <= 39) {
-echo '<img class="ww g40 g40_1" src="img/x.gif" alt="Világcsoda">'; }
+echo '<img class="ww g40 g40_1" src="img/x.gif" alt="Wonder of the World">'; }
 if($village->resarray['f99'] >= 40 && $village->resarray['f99'] <= 59) {
-echo '<img class="ww g40 g40_2" src="img/x.gif" alt="Világcsoda">'; }
+echo '<img class="ww g40 g40_2" src="img/x.gif" alt="Wonder of the World">'; }
 if($village->resarray['f99'] >= 60 && $village->resarray['f99'] <= 79) {
-echo '<img class="ww g40 g40_3" src="img/x.gif" alt="Világcsoda">'; }
+echo '<img class="ww g40 g40_3" src="img/x.gif" alt="Wonder of the World">'; }
 if($village->resarray['f99'] >= 80 && $village->resarray['f99'] <= 89) {
-echo '<img class="ww g40 g40_4" src="img/x.gif" alt="Világcsoda">'; }
+echo '<img class="ww g40 g40_4" src="img/x.gif" alt="Wonder of the World">'; }
 if($village->resarray['f99'] >= 90 && $village->resarray['f99'] <= 100) {
-echo '<img class="ww g40 g40_5" src="img/x.gif" alt="Világcsoda">'; }
+echo '<img class="ww g40 g40_5" src="img/x.gif" alt="Wonder of the World">'; }
 }
 ?>
     <div id="levels" <?php if(isset($_COOKIE['t4level'])) { echo "class=\"on\""; } ?>>
