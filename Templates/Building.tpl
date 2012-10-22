@@ -15,8 +15,10 @@
 					<tr>
 						<th colspan="4"><?php echo BUILDING_UPGRADING;?>
 			<?php if($session->gold >= 2) { ?> 
-            <div class="finish Now"><a class="arrow" href="?cmd=buildingFinish" onclick="return confirm('Complete instantly with </a>
-             <b>2 gold</b> <img src="img/x.gif" class="gold" alt="Arany"></div>
+		<div class="finishNow">
+		  <a class="arrow" href="?cmd=buildingFinish" onclick="return confirm('Complete instantly for 2 gold?')">Finish all</a>
+		  <b> (price: <img src="img/x.gif" class="gold" alt="Arany"> 2)</b>
+		</div>
 		<?php
             }
             ?></th>
